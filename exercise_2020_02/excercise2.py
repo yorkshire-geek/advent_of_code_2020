@@ -21,9 +21,9 @@ class DataWrapper (DataWrapper):
         return self.data.split(" ")[2]
 
 
-def check_valid_1(min_value: int, max_value: int, check_char: str, password : str ) -> bool:
-    occurances = password.count(check_char)
-    return (occurances >= min_value) & (occurances <= max_value)
+def check_valid_1(min_value: int, max_value: int, check_char: str, password: str) -> bool:
+    occurrences = password.count(check_char)
+    return (occurrences >= min_value) & (occurrences <= max_value)
 
 
 def check_valid_2(min_value: int, max_value: int, check_char: str, password: str) -> bool:
@@ -33,11 +33,11 @@ def check_valid_2(min_value: int, max_value: int, check_char: str, password: str
 if __name__ == "__main__":
     count_1, count_2 = 0, 0
     list_of_data = ObjectMother("input.txt").return_list(DataWrapper.factory)
-    for data in list_of_data:
-        if check_valid_1(data.get_min(), data.get_max(), data.get_check_char(), data.get_password()):
+    for jobber in list_of_data:
+        if check_valid_1(jobber.get_min(), jobber.get_max(), jobber.get_check_char(), jobber.get_password()):
             count_1 += 1
 
-        if check_valid_2(data.get_min(), data.get_max(), data.get_check_char(), data.get_password()):
+        if check_valid_2(jobber.get_min(), jobber.get_max(), jobber.get_check_char(), jobber.get_password()):
             count_2 += 1
 
     print(count_1, count_2)
